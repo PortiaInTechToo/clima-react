@@ -9,8 +9,12 @@ export default function App() {
         <h1>Weather App</h1>
         <Weather />
         <footer>
-          This project was coded by Portia Mthethwa and is open-sourced on{" "}
-          <a href="https://github.com/Portia165/clima-react.git">Github</a>.
+          This project was coded by Portia Mthethwa,
+          <a href="https://github.com/Portia165/clima-react.git">
+            is open-sourced onGithub
+          </a>
+          and hosted on
+          <a href="https://soft-baklava-cfe374.netlify.app/">Netlify</a>.
         </footer>
       </div>
     </div>
