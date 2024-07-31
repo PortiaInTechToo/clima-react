@@ -9,12 +9,12 @@ export default function Weather() {
     console.log(response.data);
     setWeatherData({
       ready: true,
-      temperature: response.data.main.temp,
-      humidity: response.main.data.humidity,
-      wind: response.data.main.wind.speed,
-      city: response.data.name,
-      description: response.data.weather[0].description,
-      iconUrl: "",
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+      description: response.data.condition.description,
+      iconUrl: response.data.condition.icon_url,
       date: "Friday 12:49",
     });
   }
@@ -52,8 +52,8 @@ export default function Weather() {
                   </span>
                 </li>
                 <li>
-                  Humidity:<strong> {weatherData.humidity}</strong>, Wind:
-                  <strong>{weatherData.wind} km/h</strong>
+                  Humidity:<strong> {weatherData.humidity}%</strong>, Wind:
+                  <strong>{Math.round(weatherData.wind)} km/h</strong>
                 </li>
               </ul>
             </div>
@@ -75,7 +75,7 @@ export default function Weather() {
   } else {
     const apiKey = "282f8036ef5dat2effb4fc9cbocda23a";
     let city = "Johannesburg";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric `;
     axios.get(apiUrl).then(handleResponse);
     return "Loading...";
   }
